@@ -1,0 +1,12 @@
+{
+  "RJA_DB": {
+    "Type": "ConnectionProfile:Database:PostgreSQL",
+	"TargetCTM":"CTMHost",
+    "TargetAgent": "AgentHost",
+    "Host": "cirrocumulus.bmci2t.com",
+    "Port":"5432",
+    "User": "Postgres",
+    "Password": "DB_Password",
+    "DatabaseName": "emdb"
+  }
+} 
