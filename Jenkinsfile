@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy_Workflow') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm run DevJobs.json -e Dev'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm run DevJobs.json DevDeploy.json -e Dev'
         echo 'Worklow Run Complete'
       }
     }
