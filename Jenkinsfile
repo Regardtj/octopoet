@@ -5,9 +5,9 @@ pipeline {
       steps {
         echo 'Setting Development Environment'
         sh 'whoami'
-        sh '/usr/local/lib/package/bin/ctm env add Dev "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
-        sh '/usr/local/lib/package/bin/ctm env show'
-        sh '/usr/local/lib/package/bin/ctm env set Dev'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env add Dev "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env show'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env set Dev'
         echo 'Environment was set to Dev'
       }
     }
@@ -15,7 +15,7 @@ pipeline {
     stage('Validate_Workflow') {
       steps {
         echo 'Validate Workflow Syntax'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm build DevJobs.json'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm build DevJobs.json'
         echo 'Worklow Build Complete'
       }
     }
@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy_Workflow') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm run DevJobs.json -e Dev'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm run DevJobs.json -e Dev'
         echo 'Worklow Run Complete'
       }
     }
@@ -31,7 +31,7 @@ pipeline {
     stage('Clean-up Development Environment') {
       steps {
         echo 'Deleting Development Environment'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm env delete Dev'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env delete Dev'
         echo 'Environment delete Complete'
       }
     }
@@ -39,9 +39,9 @@ pipeline {
     stage('Prep_Environment_Prod') {
       steps {
         echo 'Setting Production Environment'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm env add Production "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm env show'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm env set Production'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env add Production "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env show'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env set Production'
         echo 'Environment was set to Prod'
       }
     }
@@ -49,7 +49,7 @@ pipeline {
     stage('Deploy_Workflow_Prod') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm run DevJobs.json ProdDeploy.json -e Production'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm run DevJobs.json ProdDeploy.json -e Production'
         echo 'Worklow Run Complete'
       }
     }
@@ -57,7 +57,7 @@ pipeline {
     stage('Clean-up Production Environment') {
       steps {
         echo 'Deleting Production Environment'
-        sh '/usr/local/lib/node_modules/ctm-cli/bin/ctm env delete Production'
+        sh '/usr/local/lib/node_modules/npm/bin/ctm env delete Production'
         echo 'Environment delete Complete'
       }
     }
