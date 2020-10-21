@@ -188,6 +188,14 @@
         "SpecificDates": [],
         "DaysRelation": "OR"
       },
+      "IfBase:Folder:CompletionStatus_0": {
+        "Type": "If:CompletionStatus",
+        "CompletionStatus": "OK",
+        "Run_0": {
+          "Type": "Action:Run",
+          "Folder": "RJA_DB_Job"
+        }
+      },
       "eventsToWaitFor": {
         "Type": "WaitForEvents",
         "Events": [
