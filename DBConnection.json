@@ -1,8 +1,8 @@
 {
   "RJA_DB": {
     "Type": "ConnectionProfile:Database:PostgreSQL",
-	"TargetCTM":"CTMHost",
-    "TargetAgent": "AgentHost",
+	"TargetCTM":"cirrocumulus",
+    "TargetAgent": "cirrocumulus",
     "Host": "cirrocumulus.bmci2t.com",
     "Port":"5432",
     "User": "Postgres",
