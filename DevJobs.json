@@ -1,0 +1,209 @@
+{
+  "RJA_DevelopmentFlow": {
+    "Type": "Folder",
+    "ControlmServer": "cirrocumulus",
+    "OrderMethod": "Manual",
+    "RunAs": "ctmserver",
+    "SiteStandard": "RJA_Dev_Standard",
+    "SubApplication": "RJA_Dev_Flow",
+    "Application": "RJA_Development",
+    "When": {
+      "WeekDays": [
+        "NONE"
+      ],
+      "Months": [
+        "NONE"
+      ],
+      "MonthDays": [
+        "NONE"
+      ]
+    },
+    "RJA_Dev_Job1": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
+          },
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job3"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job2": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job2-TO-RJA_Dev_Job4"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job3": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job3"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job3-TO-RJA_Dev_Job5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job3"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job4": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 13",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job2-TO-RJA_Dev_Job4"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job2-TO-RJA_Dev_Job4"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job5": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "Description": "This job will process the payments",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job3-TO-RJA_Dev_Job5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job3-TO-RJA_Dev_Job5"
+          }
+        ]
+      }
+    }
+  }
+}
