@@ -10,9 +10,9 @@ pipeline {
         sh 'npm -v'
         sh 'ctm -v'
         sh 'echo $PATH'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env add Dev "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env show'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env set Dev'
+        sh 'ctm env add Dev "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
+        sh 'ctm env show'
+        sh 'ctm env set Dev'
         echo 'Environment was set to Dev'
       }
     }
