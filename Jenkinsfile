@@ -7,7 +7,7 @@ pipeline {
         sh 'id'
         sh 'printenv'
         sh 'ls /usr/local/lib/node_modules/npm/bin'
-        sh 'npm -v'
+        sh 'docker'
         sh '/usr/local/lib/node_modules/npm/bin/ctm env add Dev "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
         sh '/usr/local/lib/node_modules/npm/bin/ctm env show'
         sh '/usr/local/lib/node_modules/npm/bin/ctm env set Dev'
