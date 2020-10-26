@@ -20,7 +20,7 @@ pipeline {
     stage('Validate_Workflow') {
       steps {
         echo 'Validate Workflow Syntax'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm build DevJobs.json'
+        sh 'ctm build DevJobs.json'
         echo 'Worklow Build Complete'
       }
     }
@@ -28,7 +28,7 @@ pipeline {
     stage('Deploy_Workflow') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm run DevJobs.json DevDeploy.json -e Dev'
+        sh 'ctm run DevJobs.json DevDeploy.json -e Dev'
         echo 'Worklow Run Complete'
       }
     }
