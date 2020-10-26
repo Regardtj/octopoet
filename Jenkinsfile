@@ -6,7 +6,7 @@ pipeline {
         echo 'Setting Development Environment'
         sh 'id'
         sh 'printenv'
-        sh 'ls /usr/local/lib/node_modules/npm/bin'\
+        sh 'ls /usr/local/lib/node_modules/npm/bin'
         sh 'npm -v'
         sh 'ctm -v'
         sh 'echo $PATH'
