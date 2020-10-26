@@ -44,9 +44,9 @@ pipeline {
     stage('Prep_Environment_Prod') {
       steps {
         echo 'Setting Production Environment'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env add Production "https://workbench:8443/automation-api" "workbench" "workbench"'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env show'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env set Production'
+        sh 'ctm env add Production "https://workbench:8443/automation-api" "workbench" "workbench"'
+        sh 'ctm env show'
+        sh 'ctm env set Production'
         echo 'Environment was set to Prod'
       }
     }
@@ -54,7 +54,7 @@ pipeline {
     stage('Deploy_Workflow_Prod') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm run DevJobs.json ProdDeploy.json -e Production'
+        sh 'ctm run DevJobs.json ProdDeploy.json -e Production'
         echo 'Worklow Run Complete'
       }
     }
@@ -62,7 +62,7 @@ pipeline {
     stage('Clean-up Production Environment') {
       steps {
         echo 'Deleting Production Environment'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env delete Production'
+        sh 'ctm env delete Production'
         echo 'Environment delete Complete'
       }
     }
