@@ -16,7 +16,7 @@
     {
       "ApplyOn"  :  {"Type":"Folder"},
       "Property" : "@",
-      "Replace"  : [ {"RJA_Development(.*)" : "RJA_Production$1"} ]
+      "Replace"  : [ {"RJA_DevelopmentFlow(.*)" : "RJA_ProductionFlow$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Job"},
