@@ -36,7 +36,7 @@ pipeline {
     stage('Clean-up Development Environment') {
       steps {
         echo 'Deleting Development Environment'
-        sh '/usr/local/lib/node_modules/npm/bin/ctm env delete Dev'
+        sh 'ctm env delete Dev'
         echo 'Environment delete Complete'
       }
     }
