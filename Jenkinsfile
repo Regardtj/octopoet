@@ -4,7 +4,8 @@ pipeline {
     stage('Prep_Environment') {
       steps {
         echo 'Setting Development Environment'
-        sh 'whoami'
+        sh 'id'
+        sh 'printenv'
         sh '/usr/local/lib/node_modules/npm/bin/ctm env add Dev "https://cirrocumulus.bmci2t.com:8446/automation-api" "Reggie" "Password"'
         sh '/usr/local/lib/node_modules/npm/bin/ctm env show'
         sh '/usr/local/lib/node_modules/npm/bin/ctm env set Dev'
