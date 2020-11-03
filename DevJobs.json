@@ -281,7 +281,7 @@
         ]
       }
     },
-    "RJA_Development_monitor": {
+    "RJA_Dev_monitor": {
       "Type": "Job:SLAManagement",
       "ServiceName": "RJA_Dev_Service",
       "ServicePriority": "1",
