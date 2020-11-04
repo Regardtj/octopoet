@@ -1,0 +1,233 @@
+{
+  "RJA_Workbench": {
+    "Type": "Folder",
+    "BusinessFields": [
+      {
+        "Team_ID": ""
+      },
+      {
+        "Environment": ""
+      }
+    ],
+    "ControlmServer": "cirrocumulus",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "RJA_Los_Standaard",
+    "CreatedBy": "Reggie",
+    "Application": "RJA_Workbench",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "DaysRelation": "OR",
+            "WeekDays": [
+              "NONE"
+            ],
+            "MonthDays": [
+              "ALL"
+            ],
+            "ConfirmationCalendars": {}
+          }
+        }
+      }
+    },
+    "RJA_Work1": {
+      "Type": "Job:Command",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Workbench",
+      "Command": "sleep 4",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work1-TO-RJA_Work2"
+          }
+        ]
+      }
+    },
+    "RJA_Work2": {
+      "Type": "Job:Command",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Workbench",
+      "Command": "sleep 4",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work1-TO-RJA_Work2"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work2-TO-RJA_Work3"
+          },
+          {
+            "Event": "RJA_Work2-TO-RJA_Work4"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work1-TO-RJA_Work2"
+          }
+        ]
+      }
+    },
+    "RJA_Work3": {
+      "Type": "Job:Command",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Workbench",
+      "Command": "sleep 4",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work2-TO-RJA_Work3"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work3-TO-RJA_Work5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work2-TO-RJA_Work3"
+          }
+        ]
+      }
+    },
+    "RJA_Work4": {
+      "Type": "Job:Command",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Workbench",
+      "Command": "sleep 4",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work2-TO-RJA_Work4"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work4-TO-RJA_Work5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work2-TO-RJA_Work4"
+          }
+        ]
+      }
+    },
+    "RJA_Work5": {
+      "Type": "Job:Command",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Workbench",
+      "Command": "sleep 4",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work3-TO-RJA_Work5"
+          },
+          {
+            "Event": "RJA_Work4-TO-RJA_Work5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Work3-TO-RJA_Work5"
+          },
+          {
+            "Event": "RJA_Work4-TO-RJA_Work5"
+          }
+        ]
+      }
+    }
+  }
+}
