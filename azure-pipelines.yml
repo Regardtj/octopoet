@@ -28,3 +28,12 @@ steps:
    ctm session login
   displayName: 'Add environment and test login'
 
+- script: |
+   ctm env show
+   echo 'Environment was set to Azure'
+  displayName: 'Azure'
+
+- script: |
+   ctm build DevJobs.json
+   echo 'Workflow validated successfully'
+  displayName: 'Success'
