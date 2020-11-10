@@ -1,0 +1,36 @@
+{
+  "DeployDescriptor":
+  [
+    {
+      "Property" : "ControlmServer",
+      "Assign"   : "cirrocumulus"
+    },
+    {
+      "Property" : "Application",
+      "Replace"  : [ {"RJA_Development(.*)" : "RJA_Azure_Deploy$1"} ]
+    },
+    {
+      "Property" : "SubApplication",
+      "Replace"  : [ {"RJA_Dev_Flow(.*)" : "RJA_Azure_Flow$1"} ]
+    },
+    {
+      "ApplyOn"  :  {"Type":"Folder"},
+      "Property" : "@",
+      "Replace"  : [ {"RJA_DevelopmentFlow(.*)" : "RJA_AzureFlow$1"} ]
+    },
+    {
+      "ApplyOn"  :  {"Type":"Job"},
+      "Property" : "@",
+      "Replace"  : [ {"RJA_Dev_(.*)" : "RJA_Azure_$1"} ] 
+    },
+    {  
+      "Property" : "SiteStandard",
+      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Prod_Standard$1"} ]
+
+    },
+    {
+      "Property" : "Event",
+      "Replace"  : [ {"RJA_Dev_Job(.*)" : "RJA_Azure_Job$1"} ]
+      }
+  ]
+}
