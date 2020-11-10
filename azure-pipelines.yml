@@ -6,25 +6,25 @@ pool:
 
 steps:
 - task: NodeTool@0
-inputs:
-versionSpec: '12.x'
-displayName: 'Install Node.js'
+  inputs:
+   versionSpec: '12.x'
+  displayName: 'Install Node.js'
 
 - script: |
-npm install
-npm run build
-npm -v
-node -v
-displayName: 'npm install and build'
+   npm install
+   npm run build
+   npm -v
+   node -v
+  displayName: 'npm install and build'
 
 - script: |
-wget https://s3-us-west-2.amazonaws.com/controlm-appdev/release/latest/ctm-cli.tgz
-npm -g install ctm-cli.tgz
-ctm -v
-displayName: 'Download and install CTM AAPI CLI'
+   wget https://s3-us-west-2.amazonaws.com/controlm-appdev/release/latest/ctm-cli.tgz
+   npm -g install ctm-cli.tgz
+   ctm -v
+  displayName: 'Download and install CTM AAPI CLI'
 
 - script: |
-ctm env add Azure https://cirrocumulus.bmci2t.com:8446/automation-api Reggie Password 
-ctm session login
-displayName: 'Add environment and test login'
+   ctm env add Azure https://cirrocumulus.bmci2t.com:8446/automation-api Reggie Password 
+   ctm session login
+  displayName: 'Add environment and test login'
 
