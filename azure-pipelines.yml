@@ -32,3 +32,4 @@ displayName: 'Download and install CTM AAPI CLI'
 ctm env add Azure https://cirrocumulus.bmci2t.com:8446/automation-api Reggie Password 
 ctm session login
 displayName: 'Add environment and test login'
+
