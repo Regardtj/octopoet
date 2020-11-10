@@ -25,7 +25,7 @@
     },
     {  
       "Property" : "SiteStandard",
-      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Prod_Standard$1"} ]
+      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Azure_Standard$1"} ]
 
     },
     {
