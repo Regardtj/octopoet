@@ -39,7 +39,7 @@ steps:
   displayName: 'Validate Workflow'
 
 - script: |
-   ctm run DevJobs.json -e Azure
+   ctm run DevJobs.json AzureDeploy.json -e Azure
    echo 'Development flow deployed'
   displayName: 'Run Workflow'
 
