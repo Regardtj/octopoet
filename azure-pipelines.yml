@@ -31,9 +31,19 @@ steps:
 - script: |
    ctm env show
    echo 'Environment was set to Azure'
-  displayName: 'Azure'
+  displayName: 'Set Target Endpoint'
 
 - script: |
    ctm build DevJobs.json
    echo 'Workflow validated successfully'
-  displayName: 'Success'
+  displayName: 'Validate Workflow'
+
+- script: |
+   ctm run DevJobs.json -e Azure
+   echo 'Development flow deployed'
+  displayName: 'Run Workflow'
+
+- script: |
+   ctm env del Azure
+   echo 'Environment successfully removed'
+  displayName: 'Cleanup environment'
