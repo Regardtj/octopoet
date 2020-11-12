@@ -33,7 +33,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToAdd": {
@@ -63,7 +62,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -106,7 +104,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -149,7 +146,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -193,7 +189,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "IfBase:Folder:CompletionStatus_0": {
@@ -247,7 +242,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -303,7 +297,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -311,6 +304,14 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job6-TO-RJA_Dev_Job7"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Job10"
           }
         ]
       },
@@ -339,7 +340,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -347,6 +347,14 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job6-TO-RJA_Dev_Job8"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Job10"
           }
         ]
       },
@@ -361,16 +369,6 @@
     },
     "RJA_Dev_Service": {
       "Type": "Job:SLAManagement",
-      "ServiceActions": {
-        "If:SLA:ServiceIsLate_0": {
-          "Type": "If:SLA:ServiceIsLate",
-          "Action:SLA:Notify_0": {
-            "Type": "Action:SLA:Notify",
-            "Severity": "Regular",
-            "Message": "Service %%SERVICE_NAME is projected to be late. The service deadline is %%SERVICE_DUE_TIME but it is estimated to complete at %%SERVICE_EXPECTED_END_TIME. The following job(s) are problematic: %%PROBLEMATIC_JOBS."
-          }
-        }
-      },
       "ServiceName": "RJA_Dev_Monitor",
       "ServicePriority": "1",
       "SubApplication": "RJA_Dev_Flow",
@@ -389,7 +387,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -424,7 +421,6 @@
         "MonthDays": [
           "ALL"
         ],
-        "SpecificDates": [],
         "DaysRelation": "OR"
       },
       "eventsToWaitFor": {
@@ -435,11 +431,66 @@
           }
         ]
       },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
+          }
+        ]
+      },
       "eventsToDelete": {
         "Type": "DeleteEvents",
         "Events": [
           {
             "Event": "RJA_Dev_Job6-TO-RJA_Dev_Job9"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job10": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "Description": "Final Report",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 6",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Job10"
+          },
+          {
+            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Job10"
+          },
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Job10"
+          },
+          {
+            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Job10"
+          },
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
           }
         ]
       }
