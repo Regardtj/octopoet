@@ -138,7 +138,7 @@
       "CreatedBy": "emuser",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
-      "Command": "sleep 13",
+      "Command": "sleep 15",
       "When": {
         "WeekDays": [
           "NONE"
@@ -480,6 +480,14 @@
           }
         ]
       },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Job11"
+          }
+        ]
+      },
       "eventsToDelete": {
         "Type": "DeleteEvents",
         "Events": [
@@ -491,6 +499,41 @@
           },
           {
             "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job11": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "Description": "Payment processing",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Job11"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Job11"
           }
         ]
       }

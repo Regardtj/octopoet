@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
-<!-- XML Utils Details: version 9.0.0. Exported at 20201112-143150 by Reggie from server cirrocumulus -->
+<!-- XML Utils Details: version 9.0.0. Exported at 20201116-145738 by Reggie from server cirrocumulus -->
 <DEFTABLE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Folder.xsd">
     <SMART_FOLDER
         ADJUST_COND="N"
@@ -8,8 +8,8 @@
         APR="1"
         AUG="1"
         AUTOARCH="1"
-        CHANGE_DATE="20201105"
-        CHANGE_TIME="145901"
+        CHANGE_DATE="20201112"
+        CHANGE_TIME="143802"
         CHANGE_USERID="Reggie"
         CONFIRM="0"
         CREATED_BY="ctmdk"
@@ -35,7 +35,7 @@
         JOBNAME="RJA_DevelopmentFlow"
         JUL="1"
         JUN="1"
-        LAST_UPLOAD="20201112142511UTC"
+        LAST_UPLOAD="20201116113609UTC"
         MAR="1"
         MAXDAYS="0"
         MAXRERUN="0"
@@ -91,10 +91,10 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201105"
-            CHANGE_TIME="145901"
+            CHANGE_DATE="20201113"
+            CHANGE_TIME="140500"
             CHANGE_USERID="Reggie"
-            CMDLINE="sleep 10"
+            CMDLINE="sleep 11"
             CONFIRM="0"
             CREATED_BY="emuser"
             CREATION_DATE="20201030"
@@ -146,8 +146,8 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201105"
-            CHANGE_TIME="145901"
+            CHANGE_DATE="20201112"
+            CHANGE_TIME="143802"
             CHANGE_USERID="Reggie"
             CMDLINE="sleep 10"
             CONFIRM="0"
@@ -202,8 +202,8 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201105"
-            CHANGE_TIME="145901"
+            CHANGE_DATE="20201112"
+            CHANGE_TIME="143802"
             CHANGE_USERID="Reggie"
             CMDLINE="sleep 10"
             CONFIRM="0"
@@ -258,8 +258,8 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201105"
-            CHANGE_TIME="145901"
+            CHANGE_DATE="20201112"
+            CHANGE_TIME="143802"
             CHANGE_USERID="Reggie"
             CMDLINE="sleep 13"
             CONFIRM="0"
@@ -314,8 +314,8 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201105"
-            CHANGE_TIME="145901"
+            CHANGE_DATE="20201112"
+            CHANGE_TIME="143802"
             CHANGE_USERID="Reggie"
             CMDLINE="sleep 10"
             CONFIRM="0"
@@ -375,8 +375,8 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201105"
-            CHANGE_TIME="145901"
+            CHANGE_DATE="20201112"
+            CHANGE_TIME="143802"
             CHANGE_USERID="Reggie"
             CMDLINE="sleep 15"
             CONFIRM="0"
@@ -435,9 +435,9 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201112"
-            CHANGE_TIME="142510"
-            CHANGE_USERID="emuser"
+            CHANGE_DATE="20201113"
+            CHANGE_TIME="140500"
+            CHANGE_USERID="Reggie"
             CMDLINE="sleep 20"
             CONFIRM="0"
             CREATED_BY="Reggie"
@@ -452,7 +452,6 @@
             DAYS_AND_OR="O"
             DEC="1"
             DESCRIPTION="This is a new job"
-            END_FOLDER="N"
             FEB="1"
             IND_CYCLIC="S"
             INTERVAL="00001M"
@@ -484,8 +483,8 @@
             USE_INSTREAM_JCL="N"
 >
             <INCOND AND_OR="A" NAME="RJA_Dev_Job6-TO-RJA_Dev_Job7" ODATE="ODAT"/>
-            <OUTCOND NAME="RJA_Dev_Job6-TO-RJA_Dev_Job7" ODATE="ODAT" SIGN="-"/>
             <OUTCOND NAME="RJA_Dev_Job7-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="+"/>
+            <OUTCOND NAME="RJA_Dev_Job6-TO-RJA_Dev_Job7" ODATE="ODAT" SIGN="-"/>
         </JOB>
         <JOB
             APPLICATION="RJA_Development"
@@ -493,9 +492,9 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201112"
-            CHANGE_TIME="142510"
-            CHANGE_USERID="emuser"
+            CHANGE_DATE="20201113"
+            CHANGE_TIME="140500"
+            CHANGE_USERID="Reggie"
             CMDLINE="sleep 15"
             CONFIRM="0"
             CREATED_BY="Reggie"
@@ -510,7 +509,6 @@
             DAYS_AND_OR="O"
             DEC="1"
             DESCRIPTION="Processing job for payroll"
-            END_FOLDER="N"
             FEB="1"
             IND_CYCLIC="S"
             INTERVAL="00001M"
@@ -542,21 +540,19 @@
             USE_INSTREAM_JCL="N"
 >
             <INCOND AND_OR="A" NAME="RJA_Dev_Job6-TO-RJA_Dev_Job8" ODATE="ODAT"/>
-            <OUTCOND NAME="RJA_Dev_Job6-TO-RJA_Dev_Job8" ODATE="ODAT" SIGN="-"/>
             <OUTCOND NAME="RJA_Dev_Job8-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="+"/>
+            <OUTCOND NAME="RJA_Dev_Job6-TO-RJA_Dev_Job8" ODATE="ODAT" SIGN="-"/>
         </JOB>
         <JOB
             APPLICATION="RJA_Development"
             APPL_FORM="CONTROL-M BIM"
             APPL_TYPE="BIM"
-            APPL_VER="9.0.0"
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201112"
-            CHANGE_TIME="142510"
-            CHANGE_USERID="emuser"
-            CM_VER="N/A"
+            CHANGE_DATE="20201113"
+            CHANGE_TIME="140500"
+            CHANGE_USERID="Reggie"
             CONFIRM="0"
             CREATED_BY="Reggie"
             CREATION_DATE="20201105"
@@ -569,7 +565,6 @@
             DAYS="ALL"
             DAYS_AND_OR="O"
             DEC="1"
-            END_FOLDER="N"
             FEB="1"
             IND_CYCLIC="S"
             INTERVAL="00001M"
@@ -602,14 +597,10 @@
 >
             <INCOND AND_OR="A" NAME="RJA_Dev_Job5-TO-RJA_Dev_Service" ODATE="ODAT"/>
             <OUTCOND NAME="RJA_Dev_Job5-TO-RJA_Dev_Service" ODATE="ODAT" SIGN="-"/>
-            <VARIABLE NAME="%%BIM-SENSITIVITY" VALUE="3sigma"/>
             <VARIABLE NAME="%%BIM-SERVICE_NAME" VALUE="RJA_Dev_Monitor"/>
             <VARIABLE NAME="%%BIM-SERVICE_PRIORITY" VALUE="1"/>
+            <VARIABLE NAME="%%BIM-SENSITIVITY" VALUE="3sigma"/>
             <VARIABLE NAME="%%BIM-DUE_TIME" VALUE="+0:20"/>
-            <VARIABLE NAME="%%BIM-NEXT_LINK" VALUE="1"/>
-            <VARIABLE NAME="%%BIM-EVENTS" VALUE="Fail1|"/>
-            <VARIABLE NAME="%%BIM-Fail1" VALUE="Shout Severity#R Msg#LINK0"/>
-            <VARIABLE NAME="%%BIM-LINK0" VALUE="The service %%SERVICE_NAME contains failed job(s). The following job(s) are problematic: %%PROBLEMATIC_JOBS."/>
         </JOB>
         <JOB
             APPLICATION="RJA_Development"
@@ -617,9 +608,9 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
-            CHANGE_DATE="20201112"
-            CHANGE_TIME="142510"
-            CHANGE_USERID="emuser"
+            CHANGE_DATE="20201113"
+            CHANGE_TIME="140500"
+            CHANGE_USERID="Reggie"
             CMDLINE="sleep 10"
             CONFIRM="0"
             CREATED_BY="Reggie"
@@ -633,7 +624,6 @@
             DAYS="ALL"
             DAYS_AND_OR="O"
             DEC="1"
-            END_FOLDER="N"
             FEB="1"
             IND_CYCLIC="S"
             INTERVAL="00001M"
@@ -665,8 +655,8 @@
             USE_INSTREAM_JCL="N"
 >
             <INCOND AND_OR="A" NAME="RJA_Dev_Job6-TO-RJA_Dev_Job9" ODATE="ODAT"/>
-            <OUTCOND NAME="RJA_Dev_Job6-TO-RJA_Dev_Job9" ODATE="ODAT" SIGN="-"/>
             <OUTCOND NAME="RJA_Dev_Job9-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="+"/>
+            <OUTCOND NAME="RJA_Dev_Job6-TO-RJA_Dev_Job9" ODATE="ODAT" SIGN="-"/>
         </JOB>
         <JOB
             APPLICATION="RJA_Development"
@@ -674,12 +664,15 @@
             APR="1"
             AUG="1"
             AUTOARCH="1"
+            CHANGE_DATE="20201116"
+            CHANGE_TIME="113609"
+            CHANGE_USERID="emuser"
             CMDLINE="sleep 6"
             CONFIRM="0"
             CREATED_BY="Reggie"
-            CREATION_DATE="20201112"
-            CREATION_TIME="142510"
-            CREATION_USER="emuser"
+            CREATION_DATE="20201113"
+            CREATION_TIME="140500"
+            CREATION_USER="Reggie"
             CRITICAL="0"
             CYCLIC="0"
             CYCLIC_TOLERANCE="0"
@@ -693,8 +686,67 @@
             IND_CYCLIC="S"
             INTERVAL="00001M"
             JAN="1"
-            JOBISN="18"
+            JOBISN="19"
             JOBNAME="RJA_Dev_Job10"
+            JUL="1"
+            JUN="1"
+            MAR="1"
+            MAXDAYS="0"
+            MAXRERUN="0"
+            MAXRUNS="0"
+            MAXWAIT="0"
+            MAY="1"
+            MULTY_AGENT="N"
+            NODEID="cirrocumulus"
+            NOV="1"
+            OCT="1"
+            PARENT_FOLDER="RJA_DevelopmentFlow"
+            RETRO="0"
+            RULE_BASED_CALENDAR_RELATIONSHIP="O"
+            RUN_AS="ctmserver"
+            SEP="1"
+            SHIFT="Ignore Job"
+            SHIFTNUM="+00"
+            SUB_APPLICATION="RJA_Dev_Flow"
+            SYSDB="0"
+            TASKTYPE="Command"
+            USE_INSTREAM_JCL="N"
+>
+            <INCOND AND_OR="A" NAME="RJA_Dev_Job7-TO-RJA_Dev_Job10" ODATE="ODAT"/>
+            <INCOND AND_OR="A" NAME="RJA_Dev_Job8-TO-RJA_Dev_Job10" ODATE="ODAT"/>
+            <INCOND AND_OR="A" NAME="RJA_Dev_Job9-TO-RJA_Dev_Job10" ODATE="ODAT"/>
+            <OUTCOND NAME="RJA_Dev_Job7-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="-"/>
+            <OUTCOND NAME="RJA_Dev_Job8-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="-"/>
+            <OUTCOND NAME="RJA_Dev_Job9-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="-"/>
+            <OUTCOND NAME="RJA_Dev_Job10-TO-RJA_Dev_Job11" ODATE="ODAT" SIGN="+"/>
+        </JOB>
+        <JOB
+            APPLICATION="RJA_Development"
+            APPL_TYPE="OS"
+            APR="1"
+            AUG="1"
+            AUTOARCH="1"
+            CMDLINE="sleep 5"
+            CONFIRM="0"
+            CREATED_BY="Reggie"
+            CREATION_DATE="20201116"
+            CREATION_TIME="113609"
+            CREATION_USER="emuser"
+            CRITICAL="0"
+            CYCLIC="0"
+            CYCLIC_TOLERANCE="0"
+            CYCLIC_TYPE="C"
+            DAYS="ALL"
+            DAYS_AND_OR="O"
+            DEC="1"
+            DESCRIPTION="Payment processing"
+            END_FOLDER="N"
+            FEB="1"
+            IND_CYCLIC="S"
+            INTERVAL="00001M"
+            JAN="1"
+            JOBISN="20"
+            JOBNAME="RJA_Dev_Job11"
             JUL="1"
             JUN="1"
             MAR="1"
@@ -719,12 +771,8 @@
             TASKTYPE="Command"
             USE_INSTREAM_JCL="N"
 >
-            <INCOND AND_OR="A" NAME="RJA_Dev_Job7-TO-RJA_Dev_Job10" ODATE="ODAT"/>
-            <INCOND AND_OR="A" NAME="RJA_Dev_Job8-TO-RJA_Dev_Job10" ODATE="ODAT"/>
-            <INCOND AND_OR="A" NAME="RJA_Dev_Job9-TO-RJA_Dev_Job10" ODATE="ODAT"/>
-            <OUTCOND NAME="RJA_Dev_Job7-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="-"/>
-            <OUTCOND NAME="RJA_Dev_Job8-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="-"/>
-            <OUTCOND NAME="RJA_Dev_Job9-TO-RJA_Dev_Job10" ODATE="ODAT" SIGN="-"/>
+            <INCOND AND_OR="A" NAME="RJA_Dev_Job10-TO-RJA_Dev_Job11" ODATE="ODAT"/>
+            <OUTCOND NAME="RJA_Dev_Job10-TO-RJA_Dev_Job11" ODATE="ODAT" SIGN="-"/>
         </JOB>
     </SMART_FOLDER>
 </DEFTABLE>
