@@ -138,7 +138,7 @@
       "CreatedBy": "emuser",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
-      "Command": "sleep 15",
+      "Command": "sleep 13",
       "When": {
         "WeekDays": [
           "NONE"
@@ -508,10 +508,10 @@
       "SubApplication": "RJA_Dev_Flow",
       "Host": "cirrocumulus",
       "CreatedBy": "Reggie",
-      "Description": "Payment processing",
+      "Description": "process of payroll",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
-      "Command": "sleep 5",
+      "Command": "sleep 10",
       "When": {
         "WeekDays": [
           "NONE"
