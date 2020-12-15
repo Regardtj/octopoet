@@ -1,36 +1,93 @@
-{
-  "DeployDescriptor":
-  [
-    {
-      "Property" : "ControlmServer",
-      "Assign"   : "workbench"
-    },
-    {
-      "Property" : "Application",
-      "Replace"  : [ {"RJA_Development(.*)" : "RJA_Workbench$1"} ]
-    },
-    {
-      "Property" : "SubApplication",
-      "Replace"  : [ {"RJA_Dev_Flow(.*)" : "RJA_Work_Flow$1"} ]
-    },
-    {
-      "ApplyOn"  :  {"Type":"Folder"},
-      "Property" : "@",
-      "Replace"  : [ {"RJA_DevelopmentFlow(.*)" : "RJA_WorkbenchFlow$1"} ]
-    },
-    {
-      "ApplyOn"  :  {"Type":"Job"},
-      "Property" : "@",
-      "Replace"  : [ {"RJA_Dev_(.*)" : "RJA_Work_$1"} ] 
-    },
-    {  
-      "Property" : "SiteStandard",
-      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Work_Standard$1"} ]
+ {
+ 	"Defaults": {
+		"Application": "RJA_Development",
+		"SubApplication": "RJA_Dev_Flow",
+		"Host": "cirrocumulus",
+		"RunAs": "ctmserver",
+		"ControlmServer": "cirrocumulus",
+		"CreatedBy": "Reggie"
+	},
 
+"RJA_Dev-To-Workbench": {
+		"Type": "Folder",
+		"SiteStandard": "RJA_Dev_Standard",
+		"OrderMethod": "Manual",
+		"When": {
+			"Schedule": "Never"
+		},
+		
+    "RJA_Dev_1": {
+      "Type": "Job:Command",
+      "Command": "sleep 5"      
+      },    
+    "RJA_Dev_2": {
+      "Type": "Job:Command",
+      "Command": "sleep 5"     
+      },     
+    "RJA_Dev_3": {
+      "Type": "Job:Command",
+      "Command": "sleep 10"    
+      },     
+    "RJA_Dev_4": {
+      "Type": "Job:Command",
+      "Command": "sleep 8"     
+      },    
+    "RJA_Dev_5": {
+      "Type": "Job:Command",
+      "Command": "sleep 8"    
+      },     
+    "RJA_Dev_6": {
+      "Type": "Job:Command",
+      "Command": "sleep 8"     
+      },    
+    "RJA_Dev_7": {
+      "Type": "Job:Command",
+      "Command": "sleep 9"     
+      },     
+    "RJA_Dev_8": {
+      "Type": "Job:Command",
+      "Command": "sleep 5"     
+      },    
+    "RJA_Dev_9": {
+      "Type": "Job:Command",
+      "Command": "sleep 6"    
+      },     
+    "RJA_Dev_10": {
+      "Type": "Job:Command",
+      "Command": "sleep 8"
     },
-    {
-      "Property" : "Event",
-      "Replace"  : [ {"RJA_Dev_Job(.*)" : "RJA_Work_Job$1"} ]
-      }
-  ]
-}
+  	"flow1": {
+		"Type": "Flow",
+		"Sequence": [ "RJA_Dev_1", "RJA_Dev_2", "RJA_Dev_3"]
+		},
+		
+	"flow2": {
+		"Type": "Flow",
+		"Sequence": ["RJA_Dev_2", "RJA_Dev_4"]
+		},
+		
+	"flow3": {
+		"Type": "Flow",
+		"Sequence": ["RJA_Dev_3", "RJA_Dev_5"]
+		},
+		
+	"flow4": {
+		"Type": "Flow",
+		"Sequence": [ "RJA_Dev_4", "RJA_Dev_6"]
+		},
+		
+	"flow5": {
+		"Type": "Flow",
+		"Sequence": [ "RJA_Dev_5", "RJA_Dev_6" ]
+		},
+		
+	"flow6": {
+		"Type": "Flow",
+		"Sequence": [ "RJA_Dev_6", "RJA_Dev_7","RJA_Dev_8","RJA_Dev_9"]
+		},
+	"flow7": {
+		"Type": "Flow",
+		"Sequence": [ "RJA_Dev_7", "RJA_Dev_8","RJA_Dev_9","RJA_Dev_10"]
+		   }
+	     }
+	   }
