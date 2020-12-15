@@ -3,34 +3,34 @@
   [
     {
       "Property" : "ControlmServer",
-      "Assign"   : "cirrocumulus"
+      "Assign"   : "workbench"
     },
     {
       "Property" : "Application",
-      "Replace"  : [ {"RJA_Development(.*)" : "RJA_Production$1"} ]
+      "Replace"  : [ {"RJA_Development(.*)" : "RJA_Workbench$1"} ]
     },
     {
       "Property" : "SubApplication",
-      "Replace"  : [ {"RJA_Dev_Flow(.*)" : "RJA_Prod_Flow$1"} ]
+      "Replace"  : [ {"RJA_Dev_Flow(.*)" : "RJA_Work_Flow$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Folder"},
       "Property" : "@",
-      "Replace"  : [ {"RJA_DevelopmentFlow(.*)" : "RJA_ProductionFlow$1"} ]
+      "Replace"  : [ {"RJA_DevelopmentFlow(.*)" : "RJA_WorkbenchFlow$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Job"},
       "Property" : "@",
-      "Replace"  : [ {"RJA_Dev_(.*)" : "RJA_Prod_$1"} ] 
+      "Replace"  : [ {"RJA_Dev_(.*)" : "RJA_Work_$1"} ] 
     },
     {  
       "Property" : "SiteStandard",
-      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Prod_Standard$1"} ]
+      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Work_Standard$1"} ]
 
     },
     {
       "Property" : "Event",
-      "Replace"  : [ {"RJA_Dev_Job(.*)" : "RJA_Prod_Job$1"} ]
+      "Replace"  : [ {"RJA_Dev_Job(.*)" : "RJA_Work_Job$1"} ]
       }
   ]
 }

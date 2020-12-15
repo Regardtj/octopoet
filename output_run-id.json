@@ -1,0 +1,5 @@
+{
+  "runId": "e51d844f-2ea6-42f4-aec8-34ca6c9b1b46",
+  "statusURI": "https://cirrocumulus.bmci2t.com:8446/automation-api/run/status/e51d844f-2ea6-42f4-aec8-34ca6c9b1b46"
+}
+-i is not supported. The interactive URL property 'monitorPageURI' not found in command result
