@@ -2,15 +2,14 @@
  	"Defaults": {
 		"Application": "RJA_Development",
 		"SubApplication": "RJA_Dev_Flow",
-		"Host": "cirrocumulus",
-		"RunAs": "ctmserver",
-		"ControlmServer": "cirrocumulus",
+		"Host": "workbench",
+		"RunAs": "workbench",
+		"ControlmServer": "workbench",
 		"CreatedBy": "Reggie"
 	},
 
 "RJA_Dev-To-Workbench": {
 		"Type": "Folder",
-		"SiteStandard": "RJA_Dev_Standard",
 		"OrderMethod": "Manual",
 		"When": {
 			"Schedule": "Never"
