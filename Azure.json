@@ -22,6 +22,7 @@
       "Type": "Job:Command",
       "SubApplication": "RJA_Azure_Flow",
       "Host": "cirrocumulus",
+      "Description": "Test job",
       "CreatedBy": "emuser",
       "RunAs": "ctmserver",
       "Application": "RJA_Azure_Deploy",
