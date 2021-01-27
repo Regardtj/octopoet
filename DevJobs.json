@@ -23,6 +23,7 @@
       "SubApplication": "RJA_Dev_Flow",
       "Host": "cirrocumulus",
       "CreatedBy": "emuser",
+      "Description": "Insight Investment test job",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
       "Command": "sleep 10",
@@ -83,7 +84,7 @@
       "eventsToDelete": {
         "Type": "DeleteEvents",
         "Events": [
-          { 
+          {
             "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
           }
         ]
@@ -93,8 +94,8 @@
       "Type": "Job:Command",
       "SubApplication": "RJA_Dev_Flow",
       "Host": "cirrocumulus",
-      "Description": "This is a Test",
       "CreatedBy": "emuser",
+      "Description": "This is a Test",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
       "Command": "sleep 10",
