@@ -573,11 +573,53 @@
           }
         ]
       },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
+          }
+        ]
+      },
       "eventsToDelete": {
         "Type": "DeleteEvents",
         "Events": [
           {
             "Event": "RJA_Dev_Job11-TO-RJA_Dev_Job12"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job13": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
           }
         ]
       }
