@@ -21,9 +21,9 @@
     "RJA_Dev_Job1": {
       "Type": "Job:Command",
       "SubApplication": "RJA_Dev_Flow",
+      "Description": "New job",
       "Host": "cirrocumulus",
       "CreatedBy": "emuser",
-      "Description": "Insight Investment test job",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
       "Command": "sleep 10",
@@ -615,11 +615,53 @@
           }
         ]
       },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job13-TO-RJA_Dev_Job14"
+          }
+        ]
+      },
       "eventsToDelete": {
         "Type": "DeleteEvents",
         "Events": [
           {
             "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job14": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 4",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job13-TO-RJA_Dev_Job14"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job13-TO-RJA_Dev_Job14"
           }
         ]
       }
