@@ -21,9 +21,9 @@
     "RJA_Dev_Job1": {
       "Type": "Job:Command",
       "SubApplication": "RJA_Dev_Flow",
-      "Description": "New job",
       "Host": "cirrocumulus",
       "CreatedBy": "emuser",
+      "Description": "New job",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
       "Command": "sleep 10",
@@ -214,9 +214,6 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job5-TO-RJA_Dev_Job6"
-          },
-          {
-            "Event": "RJA_Dev_Job5-TO-RJA_Dev_Service"
           }
         ]
       },
@@ -313,7 +310,7 @@
         "Type": "AddEvents",
         "Events": [
           {
-            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Job10"
+            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Service"
           }
         ]
       },
@@ -356,7 +353,7 @@
         "Type": "AddEvents",
         "Events": [
           {
-            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Job10"
+            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Service"
           }
         ]
       },
@@ -395,7 +392,13 @@
         "Type": "WaitForEvents",
         "Events": [
           {
-            "Event": "RJA_Dev_Job5-TO-RJA_Dev_Service"
+            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Service"
+          },
+          {
+            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Service"
+          },
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Service"
           }
         ]
       },
@@ -403,7 +406,13 @@
         "Type": "DeleteEvents",
         "Events": [
           {
-            "Event": "RJA_Dev_Job5-TO-RJA_Dev_Service"
+            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Service"
+          },
+          {
+            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Service"
+          },
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Service"
           }
         ]
       }
@@ -437,7 +446,7 @@
         "Type": "AddEvents",
         "Events": [
           {
-            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Service"
           }
         ]
       },
@@ -446,222 +455,6 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job6-TO-RJA_Dev_Job9"
-          }
-        ]
-      }
-    },
-    "RJA_Dev_Job10": {
-      "Type": "Job:Command",
-      "SubApplication": "RJA_Dev_Flow",
-      "Host": "cirrocumulus",
-      "CreatedBy": "Reggie",
-      "Description": "Final Report",
-      "RunAs": "ctmserver",
-      "Application": "RJA_Development",
-      "Command": "sleep 6",
-      "When": {
-        "WeekDays": [
-          "NONE"
-        ],
-        "MonthDays": [
-          "ALL"
-        ],
-        "DaysRelation": "OR"
-      },
-      "eventsToWaitFor": {
-        "Type": "WaitForEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Job10"
-          },
-          {
-            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Job10"
-          },
-          {
-            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
-          }
-        ]
-      },
-      "eventsToAdd": {
-        "Type": "AddEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Job11"
-          }
-        ]
-      },
-      "eventsToDelete": {
-        "Type": "DeleteEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job7-TO-RJA_Dev_Job10"
-          },
-          {
-            "Event": "RJA_Dev_Job8-TO-RJA_Dev_Job10"
-          },
-          {
-            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
-          }
-        ]
-      }
-    },
-    "RJA_Dev_Job11": {
-      "Type": "Job:Command",
-      "SubApplication": "RJA_Dev_Flow",
-      "Host": "cirrocumulus",
-      "CreatedBy": "Reggie",
-      "Description": "process of payroll",
-      "RunAs": "ctmserver",
-      "Application": "RJA_Development",
-      "Command": "sleep 10",
-      "When": {
-        "WeekDays": [
-          "NONE"
-        ],
-        "MonthDays": [
-          "ALL"
-        ],
-        "DaysRelation": "OR"
-      },
-      "eventsToWaitFor": {
-        "Type": "WaitForEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Job11"
-          }
-        ]
-      },
-      "eventsToAdd": {
-        "Type": "AddEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job11-TO-RJA_Dev_Job12"
-          }
-        ]
-      },
-      "eventsToDelete": {
-        "Type": "DeleteEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Job11"
-          }
-        ]
-      }
-    },
-    "RJA_Dev_Job12": {
-      "Type": "Job:Command",
-      "SubApplication": "RJA_Dev_Flow",
-      "Host": "cirrocumulus",
-      "CreatedBy": "emuser",
-      "RunAs": "ctmserver",
-      "Application": "RJA_Development",
-      "Command": "sleep 5",
-      "When": {
-        "WeekDays": [
-          "NONE"
-        ],
-        "MonthDays": [
-          "ALL"
-        ],
-        "DaysRelation": "OR"
-      },
-      "eventsToWaitFor": {
-        "Type": "WaitForEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job11-TO-RJA_Dev_Job12"
-          }
-        ]
-      },
-      "eventsToAdd": {
-        "Type": "AddEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
-          }
-        ]
-      },
-      "eventsToDelete": {
-        "Type": "DeleteEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job11-TO-RJA_Dev_Job12"
-          }
-        ]
-      }
-    },
-    "RJA_Dev_Job13": {
-      "Type": "Job:Command",
-      "SubApplication": "RJA_Dev_Flow",
-      "Host": "cirrocumulus",
-      "CreatedBy": "Reggie",
-      "RunAs": "ctmserver",
-      "Application": "RJA_Development",
-      "Command": "sleep 5",
-      "When": {
-        "WeekDays": [
-          "NONE"
-        ],
-        "MonthDays": [
-          "ALL"
-        ],
-        "DaysRelation": "OR"
-      },
-      "eventsToWaitFor": {
-        "Type": "WaitForEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
-          }
-        ]
-      },
-      "eventsToAdd": {
-        "Type": "AddEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job13-TO-RJA_Dev_Job14"
-          }
-        ]
-      },
-      "eventsToDelete": {
-        "Type": "DeleteEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job12-TO-RJA_Dev_Job13"
-          }
-        ]
-      }
-    },
-    "RJA_Dev_Job14": {
-      "Type": "Job:Command",
-      "SubApplication": "RJA_Dev_Flow",
-      "Host": "cirrocumulus",
-      "CreatedBy": "Reggie",
-      "RunAs": "ctmserver",
-      "Application": "RJA_Development",
-      "Command": "sleep 4",
-      "When": {
-        "WeekDays": [
-          "NONE"
-        ],
-        "MonthDays": [
-          "ALL"
-        ],
-        "DaysRelation": "OR"
-      },
-      "eventsToWaitFor": {
-        "Type": "WaitForEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job13-TO-RJA_Dev_Job14"
-          }
-        ]
-      },
-      "eventsToDelete": {
-        "Type": "DeleteEvents",
-        "Events": [
-          {
-            "Event": "RJA_Dev_Job13-TO-RJA_Dev_Job14"
           }
         ]
       }
