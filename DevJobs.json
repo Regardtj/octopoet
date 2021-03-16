@@ -21,9 +21,9 @@
     "RJA_Dev_Job1": {
       "Type": "Job:Command",
       "SubApplication": "RJA_Dev_Flow",
+      "Description": "Data_Processing",
       "Host": "cirrocumulus",
       "CreatedBy": "emuser",
-      "Description": "New job",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
       "Command": "sleep 10",
