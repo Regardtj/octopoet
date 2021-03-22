@@ -28,6 +28,11 @@
       "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Prod_Standard$1"} ]
 
     },
+    {  
+      "Property" : "ServiceName",
+      "Replace"  : [ {"RJA_Dev_Monitor(.*)" : "RJA_Prod_Monitor$1"} ]
+
+    },
     {
       "Property" : "Event",
       "Replace"  : [ {"RJA_Dev_Job(.*)" : "RJA_Prod_Job$1"} ]
