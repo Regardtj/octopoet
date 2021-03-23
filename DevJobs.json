@@ -1,24 +1,32 @@
 {
-	"Defaults": {
-		"Application": "RJA_Development",
-		"SubApplication": "RJA_Dev_Flow",
-		"Host": "cirrocumulus",
-		"RunAs": "ctmserver",
-		"ControlmServer": "cirrocumulus",
-		"CreatedBy": "Reggie"
-	},
-
   "RJA_DevelopmentFlow": {
     "Type": "Folder",
+    "ControlmServer": "cirrocumulus",
     "OrderMethod": "Manual",
+    "RunAs": "ctmserver",
     "SiteStandard": "RJA_Dev_Standard",
+    "SubApplication": "RJA_Dev_Flow",
+    "CreatedBy": "Reggie",
+    "Application": "RJA_Development",
     "When": {
-			"Schedule": "Never"
-		},
-		
+      "WeekDays": [
+        "NONE"
+      ],
+      "Months": [
+        "NONE"
+      ],
+      "MonthDays": [
+        "NONE"
+      ]
+    },
     "RJA_Dev_Job1": {
       "Type": "Job:Command",
-      "Description": "Data_Processing for system",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "Description": "Data_Processing for system on Development",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 10",
       "When": {
         "WeekDays": [
@@ -43,6 +51,11 @@
     },
     "RJA_Dev_Job2": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 10",
       "When": {
         "WeekDays": [
@@ -80,7 +93,12 @@
     },
     "RJA_Dev_Job3": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
       "Description": "This is a Test",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 10",
       "When": {
         "WeekDays": [
@@ -118,6 +136,11 @@
     },
     "RJA_Dev_Job4": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 13",
       "When": {
         "WeekDays": [
@@ -155,7 +178,12 @@
     },
     "RJA_Dev_Job5": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
       "Description": "This job will process the payments",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 10",
       "When": {
         "WeekDays": [
@@ -187,6 +215,9 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job5-TO-RJA_Dev_Job6"
+          },
+          {
+            "Event": "RJA_Dev_Job5-TO-RJA_Dev_Process"
           }
         ]
       },
@@ -201,6 +232,11 @@
     },
     "RJA_Dev_Job6": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 15",
       "When": {
         "WeekDays": [
@@ -250,7 +286,12 @@
     },
     "RJA_Dev_Job7": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
       "Description": "This is a new job",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 20",
       "When": {
         "WeekDays": [
@@ -288,7 +329,12 @@
     },
     "RJA_Dev_Job8": {
       "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
       "Description": "Processing job for payroll",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "Command": "sleep 15",
       "When": {
         "WeekDays": [
@@ -328,7 +374,12 @@
       "Type": "Job:SLAManagement",
       "ServiceName": "RJA_Dev_Monitor",
       "ServicePriority": "1",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
       "JobRunsDeviationsTolerance": "3",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
       "CompleteIn": {
         "Time": "0:20"
       },
@@ -408,6 +459,40 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job6-TO-RJA_Dev_Job9"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Process": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "Reggie",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job5-TO-RJA_Dev_Process"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job5-TO-RJA_Dev_Process"
           }
         ]
       }
