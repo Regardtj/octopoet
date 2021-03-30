@@ -493,6 +493,9 @@
         "Events": [
           {
             "Event": "RJA_Dev_Process-TO-RJA_Dev_Job10"
+          },
+          {
+            "Event": "RJA_Dev_Process-TO-RJA_Dev_Job11"
           }
         ]
       },
@@ -535,6 +538,40 @@
         "Events": [
           {
             "Event": "RJA_Dev_Process-TO-RJA_Dev_Job10"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job11": {
+      "Type": "Job:Command",
+      "SubApplication": "RJA_Dev_Flow",
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "RunAs": "ctmserver",
+      "Application": "RJA_Development",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Process-TO-RJA_Dev_Job11"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Process-TO-RJA_Dev_Job11"
           }
         ]
       }
