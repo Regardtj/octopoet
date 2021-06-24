@@ -1,0 +1,9 @@
+{
+    "DeployDescriptor": [
+        {
+            "Comment": " Change all arguments that equals 'value1' to 'new value1'",
+            "Property": "@.Arguments[?(@ == 'value1')]",
+            "Assign": "new value1"
+        }
+    ]
+}
