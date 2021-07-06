@@ -24,7 +24,6 @@
       "SubApplication": "RJA_Dev_Flow",
       "Host": "cirrocumulus",
       "CreatedBy": "Reggie",
-      "Description": "Data_Processing for system on Development Platform",
       "RunAs": "ctmserver",
       "Application": "RJA_Development",
       "Command": "sleep 10",
