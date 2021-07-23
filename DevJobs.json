@@ -398,7 +398,7 @@
             "Event": "RJA_Dev_Job8-TO-RJA_Dev_Service"
           },
           {
-            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Service"
+            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Service"
           }
         ]
       },
@@ -412,7 +412,7 @@
             "Event": "RJA_Dev_Job8-TO-RJA_Dev_Service"
           },
           {
-            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Service"
+            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Service"
           }
         ]
       }
@@ -446,7 +446,7 @@
         "Type": "AddEvents",
         "Events": [
           {
-            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Service"
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
           }
         ]
       },
@@ -455,6 +455,50 @@
         "Events": [
           {
             "Event": "RJA_Dev_Job6-TO-RJA_Dev_Job9"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job10": {
+      "Type": "Job:Database:SQLScript",
+      "ConnectionProfile": "RJA_DB",
+      "SQLScript": "Test",
+      "SubApplication": "RJA_Dev_Flow",
+      "RunAsDummy": true,
+      "Host": "cirrocumulus",
+      "CreatedBy": "emuser",
+      "RunAs": "RJA_DB",
+      "Application": "RJA_Development",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job10-TO-RJA_Dev_Service"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job9-TO-RJA_Dev_Job10"
           }
         ]
       }

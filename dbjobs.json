@@ -1,0 +1,162 @@
+{
+	"Defaults": {
+		"Application": "RJA_DB",
+		"SubApplication": "RJA_DB_Test",
+		"Host": "cirrocumulus",
+		"RunAs": "ctmserver",
+		"ControlmServer": "cirrocumulus",
+		"CreatedBy": "regardt_jacobs@bmc.com"
+	},
+
+  "RJA_DB": {
+    "Type": "Folder",
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "RJA_Los_Standaard",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "DFE_Cal03"
+        ]  
+      }
+    },
+    "RJA_Dev_Job3": {
+      "Type": "Job:Database:SQLScript",
+      "ConnectionProfile": "TMO_SYNAPSE",
+      "SQLScript": "Test",
+      "RunAsDummy": true,
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "Months": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "NONE"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Database"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job3-TO-RJA_Dev_Job4"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Database"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job1": {
+      "Type": "Job:Command",
+      "Command": "sleep 3",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Database"
+          },
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job2": {
+      "Type": "Job:Command",
+      "Command": "sleep 3",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job2-TO-RJA_Dev_Job4"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job1-TO-RJA_Dev_Job2"
+          }
+        ]
+      }
+    },
+    "RJA_Dev_Job4": {
+      "Type": "Job:Command",
+      "Command": "sleep 3",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job2-TO-RJA_Dev_Job4"
+          },
+          {
+            "Event": "RJA_Dev_Job3-TO-RJA_Dev_Job4"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "RJA_Dev_Job2-TO-RJA_Dev_Job4"
+          },
+          {
+            "Event": "RJA_Dev_Job3-TO-RJA_Dev_Job4"
+          }
+        ]
+      }
+    }
+  }
+}
