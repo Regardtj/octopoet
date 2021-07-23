@@ -33,32 +33,6 @@ pipeline {
       }
     }
 
-    stage('Prep_Environment_Workbench') {
-      steps {
-        echo 'Setting Workbench Environment'
-        sh 'ctm env add blackbox "https://localhost:8443/automation-api" workbench workbench'
-        sh 'ctm env show'
-        sh 'ctm env set blackbox'
-        echo 'Environment was set to workbench'
-      }  
-    }
-
-    stage('Deploy_Workbench') {
-      steps {
-        echo 'Run workflow first on workbench'
-        sh 'ctm run workbench.json -i -e workbench'
-        echo 'Worklow Run Complete'
-      }
-    }
-
-    stage('Clean-up Workbench Environment') {
-      steps {
-        echo 'Deleting Workbench Environment'
-        sh 'ctm env delete blackbox'
-        echo 'Environment delete Complete'
-      }
-    }
-
     stage('Clean-up Development Environment') {
       steps {
         echo 'Deleting Development Environment'
