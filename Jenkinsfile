@@ -67,5 +67,16 @@ pipeline {
       }
     }
 
+    stage('Prep_Environment_Workbench') {
+      steps {
+        echo 'Setting Workbench Environment'
+        sh 'ctm env add blackbox "https://localhost:8443/automation-api" workbench workbench'
+        sh 'ctm env show'
+        sh 'ctm env set blackbox'
+        echo 'Environment was set to workbench'
+      }  
+     }
+    }
+
   }
 }
