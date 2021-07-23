@@ -49,7 +49,7 @@ pipeline {
         sh 'ctm run workbench.json -i -e workbench'
         echo 'Worklow Run Complete'
       }
-      }
+    }
 
     stage('Clean-up Workbench Environment') {
       steps {
