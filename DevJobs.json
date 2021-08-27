@@ -25,6 +25,7 @@
       "Host": "cirrocumulus",
       "CreatedBy": "Reggie",
       "RunAs": "ctmserver",
+      "Description": "This is a test job",
       "Application": "RJA_Development",
       "Command": "sleep 10",
       "When": {
