@@ -6,7 +6,7 @@
     "RunAs": "ctmserver",
     "SiteStandard": "RJA_Dev_Standard",
     "SubApplication": "RJA_Dev_Flow",
-    "CreatedBy": "Reggies",
+    "CreatedBy": "Reggie",
     "Application": "RJA_Development",
     "When": {
       "WeekDays": [
