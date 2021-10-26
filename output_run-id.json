@@ -1,5 +1,5 @@
 {
-  "runId": "4f0a5aa9-2dd1-4721-a590-90f4dbe5313f",
-  "statusURI": "https://cirrocumulus.bmci2t.com:8446/automation-api/run/status/4f0a5aa9-2dd1-4721-a590-90f4dbe5313f"
+  "runId": "55837c66-5c58-4dc1-9b03-c32cec752e8b",
+  "statusURI": "https://cirrocumulus.bmci2t.com:8446/automation-api/run/status/55837c66-5c58-4dc1-9b03-c32cec752e8b"
 }
 -i is not supported. The interactive URL property 'monitorPageURI' not found in command result
