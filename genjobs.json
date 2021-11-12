@@ -39,7 +39,18 @@
     "rja-run": {
           "Type" : "Job:Command",
           "Command" : "sleep 5"
+    },
+    "flow1": {
+           "Type":"Flow",
+           "Sequence":["rja-echo-job", "rja-show", "rja-wait"]
+    },
+    "flow2": {
+           "Type":"Flow",
+           "Sequence":["rja-echo-job", "rja-print", "rja-wait"] 	
+    },
+    "flow3": {
+           "Type":"Flow",
+           "Sequence":["rja-echo-job", "rja-run", "rja-wait"]
         }
-  }
-}
-
+      }
+    }
