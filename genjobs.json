@@ -35,7 +35,11 @@
     "rja-print": {
         "Type" : "Job:Command",
         "Command" : "pwd"
-    }
+    },
+    "rja-run": {
+          "Type" : "Job:Command",
+          "Command" : "sleep 5"
+        }
   }
 }
 
