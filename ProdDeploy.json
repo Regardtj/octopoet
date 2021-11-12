@@ -3,39 +3,34 @@
   [
     {
       "Property" : "ControlmServer",
-      "Assign"   : "cirrocumulus"
+      "Assign"   : "Sandbox"
     },
     {
       "Property" : "Application",
-      "Replace"  : [ {"RJA_Development(.*)" : "RJA_Production$1"} ]
+      "Replace"  : [ {"rja-flow-dev(.*)" : "rja-flow-prd$1"} ]
     },
     {
       "Property" : "SubApplication",
-      "Replace"  : [ {"RJA_Dev_Flow(.*)" : "RJA_Prod_Flow$1"} ]
+      "Replace"  : [ {"rja-jobs-dev(.*)" : "rja-jobs-prd$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Folder"},
       "Property" : "@",
-      "Replace"  : [ {"RJA_DevelopmentFlow(.*)" : "RJA_ProductionFlow$1"} ]
+      "Replace"  : [ {"rja-gen-jobs(.*)" : "rja-gen-jobs-prd$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Job"},
       "Property" : "@",
-      "Replace"  : [ {"RJA_Dev_(.*)" : "RJA_Prod_$1"} ] 
+      "Replace"  : [ {"rja-dev-(.*)" : "rja-prd-$1"} ] 
     },
     {  
       "Property" : "SiteStandard",
-      "Replace"  : [ {"RJA_Dev_Standard(.*)" : "RJA_Prod_Standard$1"} ]
-
-    },
-    {  
-      "Property" : "ServiceName",
-      "Replace"  : [ {"RJA_Dev_Monitor(.*)" : "RJA_Prod_Monitor$1"} ]
+      "Replace"  : [ {"SE Demo System Standard(.*)" : "SE Demo System Standard$1"} ]
 
     },
     {
       "Property" : "Event",
-      "Replace"  : [ {"RJA_Dev_Job(.*)" : "RJA_Prod_Job$1"} ]
+      "Replace"  : [ {"rja-dev-(.*)" : "rja-prd-$1"} ]
       }
   ]
 }
