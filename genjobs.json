@@ -1,0 +1,41 @@
+{
+
+    "Defaults" : {
+		"Application": "rja-flow",
+		"SubApplication": "rja-jobs",
+		"RunAs" : "ctmsand",
+        "ControlmServer": "Sandbox",
+        "Host": "zzz-linux-agents"
+	},
+
+  "rja-gen-jobs": {
+    "Type": "Folder",
+    "SiteStandard": "SE Demo System Standard",
+    "BusinessFields": [
+      {
+        "Usercode": "rja"
+      }
+    ],
+    
+      "rja-echo-job": {
+      "Type": "Job:Command",
+      "Command": "echo 'Hallo'"
+      },
+
+      "rja-show": {
+        "Type" : "Job:Command",
+        "Command" : "ls -la"
+    },
+    
+    "rja-wait": {
+        "Type" : "Job:Command",
+        "Command" : "sleep 5"
+    },
+    
+    "rja-print": {
+        "Type" : "Job:Command",
+        "Command" : "pwd"
+    }
+  }
+}
+
