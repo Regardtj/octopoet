@@ -17,40 +17,40 @@
       }
     ],
     
-      "rja-echo-job": {
+      "rja-echo-job-dev": {
       "Type": "Job:Command",
       "Command": "echo 'Hallo'"
       },
 
-      "rja-show": {
+      "rja-show-dev": {
         "Type" : "Job:Command",
         "Command" : "ls -la"
     },
     
-    "rja-wait": {
+    "rja-wait-dev": {
         "Type" : "Job:Command",
         "Command" : "sleep 5"
     },
     
-    "rja-print": {
+    "rja-print-dev": {
         "Type" : "Job:Command",
         "Command" : "pwd"
     },
-    "rja-run": {
+    "rja-run-dev": {
           "Type" : "Job:Command",
           "Command" : "sleep 5"
     },
     "flow1": {
            "Type":"Flow",
-           "Sequence":["rja-echo-job", "rja-show", "rja-wait"]
+           "Sequence":["rja-echo-job-dev", "rja-show-dev", "rja-wait-dev"]
     },
     "flow2": {
            "Type":"Flow",
-           "Sequence":["rja-echo-job", "rja-print", "rja-wait"] 	
+           "Sequence":["rja-echo-job-dev", "rja-print-dev", "rja-wait-dev"] 	
     },
     "flow3": {
            "Type":"Flow",
-           "Sequence":["rja-echo-job", "rja-run", "rja-wait"]
+           "Sequence":["rja-echo-job-dev", "rja-run-dev", "rja-wait-dev"]
         }
       }
     }
