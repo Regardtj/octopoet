@@ -29,8 +29,10 @@
 
     },
     {
-      "Property" : "Event",
-      "Replace"  : [ {"rja-dev-(.*)" : "rja-prd-$1"} ]
-      }
+      "Property": "Flow",
+      "Source": "flow1",
+      "Replace": [{ "rja-dev-(.*)": "rja-prd-$1"}
+        ]
+    }
   ]
 }
