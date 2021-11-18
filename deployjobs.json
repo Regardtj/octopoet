@@ -1,0 +1,309 @@
+{
+  "Defaults" : {
+    "Application": "rja-dev",
+    "SubApplication": "rja-deploy",
+    "ControlmServer": "Sandbox",
+    "Host": "zzz-linux-agents",
+    "RunAs": "ctmsand"
+  },
+  "rja-dev-jobs": {
+    "Type": "Folder",
+    "BusinessFields": [
+      {
+        "Usercode": "rja"
+      }
+    ],
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "SE Demo System Standard",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "DaysRelation": "OR",
+            "WeekDays": [
+              "NONE"
+            ],
+            "MonthDays": [
+              "ALL"
+            ]
+          }
+        }
+      }
+    },
+    "rja-dev1": {
+      "Type": "Job:Command",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev2"
+          },
+          {
+            "Event": "rja-dev1-TO-rja-dev3"
+          },
+          {
+            "Event": "rja-dev1-TO-rja-dev4"
+          }
+        ]
+      }
+    },
+    "rja-dev2": {
+      "Type": "Job:Command",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "rja-tunnel": {
+        "Type": "Resource:Pool",
+        "Quantity": "1"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev2"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "rja-dev2-TO-rja-dev5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev2"
+          }
+        ]
+      }
+    },
+    "rja-dev3": {
+      "Type": "Job:Command",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "rja-tunnel": {
+        "Type": "Resource:Pool",
+        "Quantity": "1"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev3"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "rja-dev3-TO-rja-dev5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev3"
+          }
+        ]
+      }
+    },
+    "rja-dev4": {
+      "Type": "Job:Command",
+      "Command": "sleep 8",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "rja-tunnel": {
+        "Type": "Resource:Pool",
+        "Quantity": "1"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev4"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "rja-dev4-TO-rja-dev5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "rja-dev1-TO-rja-dev4"
+          }
+        ]
+      }
+    },
+    "rja-dev5": {
+      "Type": "Job:Command",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "rja-dev2-TO-rja-dev5"
+          },
+          {
+            "Event": "rja-dev3-TO-rja-dev5"
+          },
+          {
+            "Event": "rja-dev4-TO-rja-dev5"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "rja-dev5-TO-rja-dev6"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "rja-dev2-TO-rja-dev5"
+          },
+          {
+            "Event": "rja-dev3-TO-rja-dev5"
+          },
+          {
+            "Event": "rja-dev4-TO-rja-dev5"
+          }
+        ]
+      }
+    },
+    "rja-dev6": {
+      "Type": "Job:Command",
+      "Command": "sleep 5",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "rja-dev5-TO-rja-dev6"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "rja-dev6-TO-rja-devsla"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "rja-dev5-TO-rja-dev6"
+          }
+        ]
+      }
+    },
+    "rja-devsla": {
+      "Type": "Job:SLAManagement",
+      "ServiceName": "rja-devsla",
+      "ServicePriority": "3",
+      "JobRunsDeviationsTolerance": "3",
+      "CompleteIn": {
+        "Time": "0:1"
+      },
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "rja-dev6-TO-rja-devsla"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "rja-dev6-TO-rja-devsla"
+          }
+        ]
+      }
+    }
+  }
+}
