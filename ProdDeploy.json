@@ -26,6 +26,10 @@
     {  
       "Property" : "SiteStandard",
       "Replace"  : [ {"SE Demo System Standard(.*)" : "SE Demo System Standard$1"} ]
+    },
+    {  
+      "Property" : "ServiceName",
+      "Replace"  : [ {"rja-devsla(.*)" : "rja-prodsla$1"} ]
 
     },
     {
