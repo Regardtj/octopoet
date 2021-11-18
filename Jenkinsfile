@@ -19,7 +19,7 @@ pipeline {
     stage('Validate_Workflow') {
       steps {
         echo 'Validate Workflow Syntax'
-        sh 'ctm build genjobs.json'
+        sh 'ctm build deployjobs.json'
         echo 'Worklow Build Complete'
       }
     }
@@ -27,7 +27,7 @@ pipeline {
     stage('Deploy_Workflow') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow on dev'
-        sh 'ctm run genjobs.json -e demo_sandbox'
+        sh 'ctm run deployjobs.json -e demo_sandbox'
         echo 'Worklow Run Complete'
       }
     }
