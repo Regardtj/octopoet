@@ -47,7 +47,7 @@ pipeline {
     stage('Deploy_Workflow_Prod') {
       steps {
         echo 'Applying Deploy Descriptor Transform and Running Workflow'
-        sh 'ctm run deployjobs.json ProdDeploy.json -e Production'
+        sh 'ctm run deployjobs.json ProdDeploy.json -e demo_sandbox'
         echo 'Worklow Run Complete'
       }
     }
