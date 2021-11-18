@@ -7,21 +7,21 @@
     },
     {
       "Property" : "Application",
-      "Replace"  : [ {"rja-flow-dev(.*)" : "rja-flow-prd$1"} ]
+      "Replace"  : [ {"rja-dev(.*)" : "rja-prod$1"} ]
     },
     {
       "Property" : "SubApplication",
-      "Replace"  : [ {"rja-jobs-dev(.*)" : "rja-jobs-prd$1"} ]
+      "Replace"  : [ {"rja-deploy(.*)" : "rja-deploy$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Folder"},
       "Property" : "@",
-      "Replace"  : [ {"rja-gen-jobs(.*)" : "rja-gen-jobs-prd$1"} ]
+      "Replace"  : [ {"rja-dev-jobs(.*)" : "rja-prod-jobs$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Job"},
       "Property" : "@",
-      "Replace"  : [ {"rja-dev-(.*)" : "rja-prd-$1"} ] 
+      "Replace"  : [ {"rja-dev(.*)" : "rja-prod$1"} ] 
     },
     {  
       "Property" : "SiteStandard",
@@ -29,10 +29,8 @@
 
     },
     {
-      "Property": "Flow",
-      "Source": "flow1",
-      "Replace": [{ "rja-dev-(.*)": "rja-prd-$1"}
-        ]
-    }
+      "Property" : "Event",
+      "Replace"  : [ {"rja-dev(.*)" : "rja-prod$1"} ]
+      }
   ]
 }
